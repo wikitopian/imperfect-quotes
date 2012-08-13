@@ -58,7 +58,7 @@ function imperfect_quotes_get_quote($id, $image_width, $image_height) {
 
 		$html = imperfect_quotes_html($quote['author'], $quote['quote'], $quote['image']);
 
-		return($quote);
+		return($html);
 	}
 }
 
