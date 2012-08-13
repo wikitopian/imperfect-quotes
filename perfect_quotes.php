@@ -56,7 +56,7 @@ add_filter("manage_edit-perfect-quotes_columns", "perfect_quotes_edit_columns");
 function perfect_quotes_edit_columns($columns){
   $columns = array(
     'cb' => "<input type=\"checkbox\" />",
-    'title' => 'Quote',
+    'title' => 'Author',
     'perfect-quote-author' => 'Author',
     'shortcode' => 'Shortcode',
     'author' => 'Posted by',
@@ -80,14 +80,14 @@ function perfect_quotes_columns($column){
 }
 
 // Change the default "Enter title here" text
-function perfect_quotes_post_title($title) {
+function perfect_quotes_post_author($author) {
   $screen = get_current_screen();
   if ('perfect-quotes' == $screen->post_type) {
-    $title = 'Enter Perfect Quote here';
+    $author = 'Enter author name here';
   }
-  return $title;
+  return $author;
 }
-add_filter('enter_title_here', 'perfect_quotes_post_title');
+add_filter('enter_title_here', 'perfect_quotes_post_author');
 
 // Add filter for Perfect Quotes
 add_filter( 'post_updated_messages', 'perfect_quote_updated_messages' );
@@ -121,7 +121,6 @@ function perfect_quote_add_help_text( $contextual_help, $screen_id, $screen ) {
       '<p><strong>' . __('Things to remember when adding or editing a <em>Perfect Quote</em>:') . '</strong></p>' .
       '<ul>' .
         '<li>' . __('Just type in the <em>Perfect Quote</em> you want! It\'s that easy!') . '</li>' .
-        '<li>' . __('If you want to include the source of the quote, just add it in the appropriate input field!') . '</li>' .
       '</ul>' .
       '<p><strong>' . __('If you want to schedule the <em>Perfect Quote</em> to be published in the future:') . '</strong></p>' .
       '<ul>' .
