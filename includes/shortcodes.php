@@ -36,13 +36,13 @@ function imperfect_quotes_get_quote($id, $image_width, $image_height) {
 	$args = null;
 	if($id == null) {
 		$args = array(
-		  'p'         => $id,
+		  'posts_per_page' => 1,
+		  'orderby'   => 'rand',
 		  'post_type' => 'imperfect-quotes'
 		);
 	} else {
 		$args = array(
-		  'posts_per_page' => 1,
-		  'orderby'   => 'rand',
+		  'p'         => $id,
 		  'post_type' => 'imperfect-quotes'
 		);
 	}
