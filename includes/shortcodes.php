@@ -62,7 +62,7 @@ function imperfect_quotes_get_quote($id, $image_width, $image_height) {
 	}
 }
 
-function imperfect_quotes_html($quote, $author, $image) {
+function imperfect_quotes_html($author, $quote, $image) {
 	$html  = '<div class="imperfect-quotes">';
 	$html .= $quote;
     $html .= '<span class="imperfect-quotes-author">- '.$author.'</span>';
