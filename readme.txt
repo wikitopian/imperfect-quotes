@@ -1,5 +1,5 @@
 === Perfect Quotes ===
-Contributors: Brandon Ferens, Perfect Space, Inc.
+Contributors: Brandon Ferens, Perfect Space, Inc. + Matt Parrott Mods
 Donate link: http://www.perfectspace.com/
 Tags: Perfect Quotes, perfect, quote, quotes, widget, plugin, shortcode, testimonial, testimonials, random
 Requires at least: 3.0
@@ -10,6 +10,12 @@ Stable tag: 0.3.3
 
 This plugin gives you the freedom to add quotes or testimonials to your site without having to connect to an external source for quotes.
 If you want to add a new quote, do just that, add a new quote. No more letting other people say your quotes for you. If you want to give your customers testimonials, this is a great plugin to do that, too!
+
+Matt Parrott's Mods on GitHub (2012-08-12)
+* Rich text editing of quotes
+* Added 'featured image'
+
+Note: This is not the official version. That one's hosted in the WordPress Plugin repo. This is merely a mod.
 
 = Features =
 
