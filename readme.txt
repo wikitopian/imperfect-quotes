@@ -1,21 +1,28 @@
-=== Perfect Quotes ===
-Contributors: Brandon Ferens, Perfect Space, Inc. + Matt Parrott Mods
+=== Imperfect Quotes ===
+Contributors: Brandon Ferens, Perfect Space, Inc., Matt Parrott
 Donate link: http://www.perfectspace.com/
-Tags: Perfect Quotes, perfect, quote, quotes, widget, plugin, shortcode, testimonial, testimonials, random
+Tags: Imperfect Quotes, imperfect, quote, quotes, widget, plugin, shortcode, testimonial, testimonials, random
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 0.3.3
+Stable tag: 0.9.1
 
 == Description ==
 
-This plugin gives you the freedom to add quotes or testimonials to your site without having to connect to an external source for quotes.
-If you want to add a new quote, do just that, add a new quote. No more letting other people say your quotes for you. If you want to give your customers testimonials, this is a great plugin to do that, too!
+Add a bunch of quotes on the backend, and randomly (or specifically)
+generate them on a widget, with shortcodes, or elsewhere in your theme.
 
-Matt Parrott's Mods on GitHub (2012-08-12)
-* Rich text editing of quotes
-* Added 'featured image'
+This plugin is a fork of Perfect Quotes. I forked it because it's an excellent
+plugin. Differences:
 
-Note: This is not the official version. That one's hosted in the WordPress Plugin repo. This is merely a mod.
+=== Additions ===
+* Rich text editor for the quote
+* 'Featured Image' functionality for thumbnails of the author
+ 
+=== Subtractions ===
+* Removed 'Action Button'
+* Simplified shortcode
+* Don't support showing multiple quotes
+* Don't support metadata
 
 = Features =
 
@@ -32,54 +39,60 @@ Note: This is not the official version. That one's hosted in the WordPress Plugi
 
 1. Upload plugin folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the "Plugins" menu in WordPress.
-3. Go to the Perfect Quotes menu and select Add new.
-4. Type in your quote.
-5. If you want to show who said the quote, enter the author's name in the "Quote Author" field.
-6. If you want to show where the quote is from, enter that info in the "Where is the quote or author from?" field.
+3. Go to the Imperfect Quotes menu and select Add new.
+4. Type in the author.
+5. Type in the quote.
 
 It will look something like this:
 
-The trouble with quotes on the internet is that it’s difficult to discern whether or not they are genuine.
-- Abraham Lincoln, A humble home
+The trouble with quotes on the internet is that
+it’s difficult to discern whether or not they are genuine.
+- Abraham Lincoln
 
 = Widget =
 
 1. Include the widget by going to Appearance > Widgets.
-2. Drag the Perfect Quotes widget to the area of your choice.
+2. Drag the Imperfect Quotes widget to the area of your choice.
 3. Give your widget a custom title if you wish.
-4. Let Perfect Quotes know how many quotes you wish to show.
-5. If you want quotes to randomly be selected, check the Random Quote checkbox.
 
 = Shortcode =
 
-From any page or post, you can add shortcode to display all your quotes. There are now two ways of accomplishing this:
+From any page or post, you can add shortcode to display all your quotes.
 
-* The New Way: From the editor window, click on the Perfect Quotes icon next to the "Upload/Insert" media icon. A simple popup will help you select which quote you want to display and enter the shortcode for you! It's that easy!
-* The Old Way: From the Perfect Quotes home area, there is a column called Shortcode. Find the particular quote you want and copy the corresponding shortcode. It looks something like [perfect_quotes id="1"]. Paste this into your post or onto a page and your quote will magically appear!
+From the Imperfect Quotes home area, there is a column called Shortcode.
+Find the particular quote you want and copy the corresponding shortcode.
+It looks something like [imperfect_quotes id="1"].
+Paste this into your post or onto a page and your quote will magically appear!
   
 = For more help =
 
-For more help please visit http://perfectspace.com/perfect-quotes
+For more help please visit http://www.swarmstrategies.com/imperfect-quotes
 
 == Frequently Asked Questions ==
 
 = What are the custom fields that I can use? =
 
-There are no longer any custom fields that need to be entered. Instead a nice form has been put in its place!
+Imperfect Quotes doesn't support custom fields. You'll want to use
+Perfect Quotes for that.
 
 = Does your plugin have a feature to randomly select quotes? =
 
-As of version 0.3 this feature is included and can be set in the widget.
+Unless you specify the quote by its id, it'll be randomly selected.
 
 == Screenshots ==
 
-1. This is the overview page of all your quotes. It is very similar to the All Posts and All Pages areas.
-2. This is the Add new page for your Perfect Quotes. It is very similar to the Add new post and Add new page areas. The Custom field area got a face lift and is much easier to enter the appropriate info.
-3. This is the widget view for choosing the settings for the plugin.
-4. This is the new UI for inserting a quote shortcode directly into the editor. A much easier way to include your quotes without needing to copy and paste shortcodes!
-5. The widget on the site.
+
 
 == Changelog ==
+
+= 0.9.1 =
+* Forked! IMPerfect Quotes
+* Rich text editor for the quote
+* 'Featured Image' functionality for thumbnails of the author
+* Removed 'Action Button'
+* Simplified shortcode attributes
+* Don't support showing multiple quotes
+* Don't support metadata
 
 = 0.3.3 =
 * No more ugly custom field interface! A nice new look that makes entering your quotes much easier!

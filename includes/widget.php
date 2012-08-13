@@ -1,19 +1,19 @@
 <?php
-add_action('widgets_init', 'perfect_quotes_register_widgets');
+add_action('widgets_init', 'imperfect_quotes_register_widgets');
 
-function perfect_quotes_register_widgets() {
-  register_widget('Perfect_Quotes_Widget');
+function imperfect_quotes_register_widgets() {
+  register_widget('Imperfect_Quotes_Widget');
 }
 
-class Perfect_Quotes_Widget extends WP_Widget {
+class Imperfect_Quotes_Widget extends WP_Widget {
 
   function __construct() {
     $widget_ops = array(
-      'classname' => 'widget_perfect_quote',
-      'description' => __('A quotes widget perfectly done'),
+      'classname' => 'widget_imperfect_quote',
+      'description' => __('A quotes widget imperfectly done'),
     );
-    parent::__construct('perfect-quotes', __('Perfect Quotes'), $widget_ops);
-    $this->alt_option_name = 'widget_perfect_quote';
+    parent::__construct('imperfect-quotes', __('Imperfect Quotes'), $widget_ops);
+    $this->alt_option_name = 'widget_imperfect_quote';
 
     add_action( 'save_post', array(&$this, 'flush_widget_cache') );
     add_action( 'deleted_post', array(&$this, 'flush_widget_cache') );
@@ -22,10 +22,10 @@ class Perfect_Quotes_Widget extends WP_Widget {
 
   function widget($args, $instance) {
     // Retrieve cached data
-    $cache = wp_cache_get('widget_perfect_quotes', 'widget');
+    $cache = wp_cache_get('widget_imperfect_quotes', 'widget');
 
-    // Load Perfect Quotes style.css
-    wp_enqueue_style('perfect_quotes', plugins_url('style.css', __FILE__));
+    // Load Imperfect Quotes style.css
+    wp_enqueue_style('imperfect_quotes', plugins_url('style.css', __FILE__));
 
     if (!is_array($cache)) {
       $cache = array();
@@ -39,7 +39,7 @@ class Perfect_Quotes_Widget extends WP_Widget {
     // We don't have cached data : we create it!
     ob_start();
     extract($args);
-    $title = apply_filters('widget_title', empty($instance['title']) ? __('Perfect Quotes') : $instance['title'], $instance, $this->id_base);
+    $title = apply_filters('widget_title', empty($instance['title']) ? __('Imperfect Quotes') : $instance['title'], $instance, $this->id_base);
 
     if (!$number = absint($instance['number'])) {
       $number = 1;
@@ -50,7 +50,7 @@ class Perfect_Quotes_Widget extends WP_Widget {
       'no_found_rows' => TRUE,
       'post_status' => 'publish',
       'ignore_sticky_posts' => TRUE,
-      'post_type' => 'perfect-quotes',
+      'post_type' => 'imperfect-quotes',
     );
     
     if ($instance['random'] == true) {
@@ -64,15 +64,15 @@ class Perfect_Quotes_Widget extends WP_Widget {
       if ($title) {
         echo $before_title . $title . $after_title;
       }
-      echo '<ul class="perfect-quotes">';
+      echo '<ul class="imperfect-quotes">';
       while ($r->have_posts()) {
         $r->the_post();
         ?>
         <li>
           <?php
           if (get_the_title()) the_title();
-          $quote_author = get_post_meta(get_the_ID(), 'perfect_quote_author', true);
-          $quote_where  = get_post_meta(get_the_ID(), 'perfect_quote_where', true);
+          $quote_author = get_post_meta(get_the_ID(), 'imperfect_quote_author', true);
+          $quote_where  = get_post_meta(get_the_ID(), 'imperfect_quote_where', true);
           ?>
           <span>
             <?php
@@ -93,7 +93,7 @@ class Perfect_Quotes_Widget extends WP_Widget {
 
     // Echo the result get it for caching
     $cache[$args['widget_id']] = ob_get_flush();
-    wp_cache_set('widget_perfect_quotes', $cache, 'widget');
+    wp_cache_set('widget_imperfect_quotes', $cache, 'widget');
   }
 
   function update($new_instance, $old_instance) {
@@ -105,15 +105,15 @@ class Perfect_Quotes_Widget extends WP_Widget {
     $this->flush_widget_cache();
 
     $alloptions = wp_cache_get('alloptions', 'options');
-    if (isset($alloptions['widget_perfect_quote'])) {
-      delete_option('widget_perfect_quote');
+    if (isset($alloptions['widget_imperfect_quote'])) {
+      delete_option('widget_imperfect_quote');
     }
 
     return $instance;
   }
 
   function flush_widget_cache() {
-    wp_cache_delete('widget_perfect_quotes', 'widget');
+    wp_cache_delete('widget_imperfect_quotes', 'widget');
   }
 
   function form($instance) {
