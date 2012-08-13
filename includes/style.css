@@ -10,3 +10,6 @@ ul.perfect-quotes { list-style: none; }
 /* For the shortcode */
 div.perfect-quotes { font-style: italic; padding: 0 20px 0 20px; margin: 20px 0px 20px 20px; background: url('../images/quotes.png') no-repeat top left; }
 div.perfect-quotes>span { padding-left: 20px; font-size: 80%; }
+div.perfect-quotes>img {
+	padding: 5px;
+}

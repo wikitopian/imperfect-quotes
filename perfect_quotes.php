@@ -9,6 +9,9 @@ Author URI: http://www.perfectspace.com
 License: GPL2
 */
 
+$perfect_quote_image_width  = 50;
+$perfect_quote_image_height = 100;
+
 require 'includes/widget.php';
 require 'includes/shortcodes.php';
 
@@ -41,7 +44,7 @@ function perfect_quotes_init() {
     'hierarchical' => false,
     'menu_position' => 100,
     'menu_icon' => plugin_dir_url(__FILE__) . 'images/perfect-space-icon.png',
-    'supports' => array('title', 'editor')
+    'supports' => array('title', 'editor', 'thumbnail')
   ); 
   register_post_type('perfect-quotes',$args);
   add_action( 'save_post', 'perfect_quotes_save_postdata' );
@@ -69,7 +72,6 @@ function perfect_quotes_columns($column){
  
   switch ($column) {
     case 'perfect-quote':
-      //echo get_post_meta($post->ID, 'perfect_quote', true);
 	  echo get_the_excerpt();
       break;
     case 'shortcode':
