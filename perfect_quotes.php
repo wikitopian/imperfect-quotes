@@ -11,7 +11,6 @@ License: GPL2
 
 require 'includes/widget.php';
 require 'includes/shortcodes.php';
-require 'includes/metaboxes.php';
 
 // Custom Post Type: Perfect Quotes
 add_action('init', 'perfect_quotes_init');
@@ -42,8 +41,7 @@ function perfect_quotes_init() {
     'hierarchical' => false,
     'menu_position' => 100,
     'menu_icon' => plugin_dir_url(__FILE__) . 'images/perfect-space-icon.png',
-    'supports' => array('title'),
-    'register_meta_box_cb' => 'perfect_quotes_meta_boxes'
+    'supports' => array('title', 'editor')
   ); 
   register_post_type('perfect-quotes',$args);
   add_action( 'save_post', 'perfect_quotes_save_postdata' );
@@ -57,7 +55,7 @@ function perfect_quotes_edit_columns($columns){
   $columns = array(
     'cb' => "<input type=\"checkbox\" />",
     'title' => 'Author',
-    'perfect-quote-author' => 'Author',
+    'perfect-quote' => 'Quote',
     'shortcode' => 'Shortcode',
     'author' => 'Posted by',
     'date' => 'Date'
@@ -70,8 +68,8 @@ function perfect_quotes_columns($column){
   global $post;
  
   switch ($column) {
-    case 'perfect-quote-author':
-      echo get_post_meta($post->ID, 'perfect_quote_author', true);
+    case 'perfect-quote':
+      echo get_post_meta($post->ID, 'perfect_quote', true);
       break;
     case 'shortcode':
       echo '[perfect_quotes id="' . $post->ID . '"]';
@@ -133,12 +131,6 @@ function perfect_quote_add_help_text( $contextual_help, $screen_id, $screen ) {
   return $contextual_help;
 }
 
-function perfect_quotes_meta_boxes() {
-  global $post;
-  $pagename = 'perfect-quotes';
-  add_meta_box( 'perfect_quotes_form', 'Perfect Quote', 'perfect_quotes_form', $pagename, 'normal', 'high' );
-}
-
 function perfect_quotes_save_postdata($post_id) {
   if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
     return $post_id;
@@ -149,35 +141,6 @@ function perfect_quotes_save_postdata($post_id) {
     if (!current_user_can('edit_page', $post_id)) return $post_id;
   } else {
     if (!current_user_can('edit_post', $post_id)) return $post_id;
-  }
-
-  // OK, we're authenticated: we need to find and save the data
-  $current_author = get_post_meta($post_id, 'perfect_quote_author', TRUE);
-  $new_author     = $_POST['perfect_quote_author'];
-  $current_where  = get_post_meta($post_id, 'perfect_quote_where', TRUE);
-  $new_where      = $_POST['perfect_quote_where'];
-  
-  perfect_quotes_clean($new_author);
-  perfect_quotes_clean($new_where);
-  
-  if ($current_author) {
-    if (is_null($new_author)) {
-      delete_post_meta($post_id,'perfect_quote_author');
-    } else {
-      update_post_meta($post_id,'perfect_quote_author',$new_author);
-    }
-  } elseif (!is_null($new_author)) {
-      add_post_meta($post_id,'perfect_quote_author',$new_author,TRUE);
-  }
-  
-  if ($current_where) {
-    if (is_null($new_where)) {
-      delete_post_meta($post_id,'perfect_quote_where');
-    } else {
-      update_post_meta($post_id,'perfect_quote_where',$new_where);
-    }
-  } elseif (!is_null($new_where)) {
-      add_post_meta($post_id,'perfect_quote_where',$new_where,TRUE);
   }
 
   return $post_id;
