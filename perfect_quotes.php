@@ -69,7 +69,8 @@ function perfect_quotes_columns($column){
  
   switch ($column) {
     case 'perfect-quote':
-      echo get_post_meta($post->ID, 'perfect_quote', true);
+      //echo get_post_meta($post->ID, 'perfect_quote', true);
+	  echo get_the_excerpt();
       break;
     case 'shortcode':
       echo '[perfect_quotes id="' . $post->ID . '"]';
@@ -77,7 +78,7 @@ function perfect_quotes_columns($column){
   }
 }
 
-// Change the default "Enter title here" text
+// Change the defaULT "eNter title here" text
 function perfect_quotes_post_author($author) {
   $screen = get_current_screen();
   if ('perfect-quotes' == $screen->post_type) {
