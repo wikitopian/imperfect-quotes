@@ -50,8 +50,8 @@ class Imperfect_Quotes_Widget extends WP_Widget {
 			echo $before_title . $title . $after_title;
 		}
 
-		global $imperfect_quote_image_width,
-			global $imperfect_quote_image_height
+		global $imperfect_quote_image_width;
+		global $imperfect_quote_image_height;
 			echo imperfect_quotes_get_quote(
 				null,
 				$imperfect_quote_image_width,
