@@ -17,15 +17,15 @@ function imperfect_quotes_shortcodes($atts) {
 		)
 	);
 
-  wp_enqueue_style('imperfect_quotes', plugins_url('style.css', __FILE__));
+	wp_enqueue_style('imperfect_quotes', plugins_url('style.css', __FILE__));
 
-  ob_start();
+	ob_start();
 
-  echo imperfect_quotes_get_quote($id, $image_width, $image_height);
+	echo imperfect_quotes_get_quote($id, $image_width, $image_height);
 
-  wp_reset_postdata();
-  $content = ob_get_clean();
-  return $content;
+	wp_reset_postdata();
+	$content = ob_get_clean();
+	return $content;
 }
 
 add_shortcode('imperfect_quotes', 'imperfect_quotes_shortcodes');
