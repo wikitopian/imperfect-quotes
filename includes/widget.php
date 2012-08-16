@@ -45,56 +45,25 @@ class Imperfect_Quotes_Widget extends WP_Widget {
       $number = 1;
     }
 
-    $query = array(
-      'showposts' => $number,
-      'no_found_rows' => TRUE,
-      'post_status' => 'publish',
-      'ignore_sticky_posts' => TRUE,
-      'post_type' => 'imperfect-quotes',
-    );
-    
-    if ($instance['random'] == true) {
-      $query['orderby'] = 'rand';
-    }
-    
-    $r = new WP_Query($query);
+	echo $before_widget;
+	if ($title) {
+		echo $before_title . $title . $after_title;
+	}
 
-    if ($r->have_posts()) {
-      echo $before_widget;
-      if ($title) {
-        echo $before_title . $title . $after_title;
-      }
-      echo '<ul class="imperfect-quotes">';
-      while ($r->have_posts()) {
-        $r->the_post();
-        ?>
-        <li>
-          <?php
-          if (get_the_title()) the_title();
-          $quote_author = get_post_meta(get_the_ID(), 'imperfect_quote_author', true);
-          $quote_where  = get_post_meta(get_the_ID(), 'imperfect_quote_where', true);
-          ?>
-          <span>
-            <?php
-            if (!empty($quote_author)) echo $quote_author;
-            if (!empty($quote_author) && !empty($quote_where)) echo '<br />'; 
-            if (!empty($quote_where)) echo $quote_where;
-            ?>
-          </span>
-        </li>
-        <?php
-      }
-      echo '</ul>';
-      echo $after_widget;
+	global $imperfect_quote_image_width,
+	global $imperfect_quote_image_height
+	echo imperfect_quotes_get_quote(
+		null,
+		$imperfect_quote_image_width,
+		$imperfect_quote_image_height
+	);
 
-      // Reset the global $the_post as this query will have stomped on it
-      wp_reset_postdata();
-    }
+	echo $after_widget;
 
     // Echo the result get it for caching
     $cache[$args['widget_id']] = ob_get_flush();
     wp_cache_set('widget_imperfect_quotes', $cache, 'widget');
-  }
+	}
 
   function update($new_instance, $old_instance) {
     $instance = $old_instance;
