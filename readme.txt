@@ -2,8 +2,8 @@
 Contributors: Brandon Ferens, Perfect Space Inc., Matt Parrott
 Donate link: http://www.swarmstrategies.com/imperfect-quotes
 Tags: Imperfect Quotes, imperfect, quote, quotes, widget, plugin, shortcode, testimonial, testimonials, random
-Requires at least: 3.0
-Tested up to: 3.3.1
+Requires at least: 3.4.1
+Tested up to: 3.4.1
 Stable tag: 0.9.1
 
 == Description ==
