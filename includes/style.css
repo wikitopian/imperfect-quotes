@@ -1,0 +1,15 @@
+/* For the widget */
+#sidebar ul.imperfect-quotes,
+.widget-area ul.imperfect-quotes,
+ul.imperfect-quotes { list-style: none; }
+  #sidebar ul.imperfect-quotes li,
+  ul.imperfect-quotes li { margin-bottom: 16px; background: url('../images/quotes.png') no-repeat top left; padding: 0 0 0 20px; }
+  #sidebar ul.imperfect-quotes span,
+  ul.imperfect-quotes span { display: block; width: 100%; font-style: italic; text-align: right; font-size: 80%;}
+
+/* For the shortcode */
+div.imperfect-quotes { font-style: italic; padding: 0 20px 0 20px; margin: 20px 0px 20px 20px; background: url('../images/quotes.png') no-repeat top left; }
+div.imperfect-quotes>span { padding-left: 20px; font-size: 80%; }
+div.imperfect-quotes>img {
+	padding: 5px;
+}
