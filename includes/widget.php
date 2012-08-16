@@ -41,8 +41,8 @@ class Imperfect_Quotes_Widget extends WP_Widget {
 		extract($args);
 		$title = apply_filters('widget_title', empty($instance['title']) ? __('Imperfect Quotes') : $instance['title'], $instance, $this->id_base);
 
-		if (!$number = absint($instance['number'])) {
-			$number = 1;
+		if (isset($instance['random']) && $instance['random'] == 1) {
+			$instance['id'] = null;
 		}
 
 		echo $before_widget;
@@ -53,7 +53,7 @@ class Imperfect_Quotes_Widget extends WP_Widget {
 		global $imperfect_quote_image_width;
 		global $imperfect_quote_image_height;
 			echo imperfect_quotes_get_quote(
-				null,
+				$instance['id'],
 				$imperfect_quote_image_width,
 				$imperfect_quote_image_height
 			);
@@ -68,8 +68,9 @@ class Imperfect_Quotes_Widget extends WP_Widget {
 	function update($new_instance, $old_instance) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['number'] = (int) $new_instance['number'];
 		$instance['random'] = strip_tags($new_instance['random']);
+		$instance['id'] = (int) $new_instance['id'];
+
 		// Keep the data fresh
 		$this->flush_widget_cache();
 
@@ -87,20 +88,20 @@ class Imperfect_Quotes_Widget extends WP_Widget {
 
 	function form($instance) {
 		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
-		$number = isset($instance['number']) ? absint($instance['number']) : 1;
 		$random = esc_attr( $instance['random']);
+		$id = isset($instance['id']) ? absint($instance['id']) : 1;
 ?>
 	<p>
 	  <label for="<?php echo $this->get_field_id('title'); ?>"><?php echo __('Title:'); ?></label>
 	  <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
 	</p>
 	<p>
-	  <label for="<?php echo $this->get_field_id('number'); ?>"><?php echo __('Number of quotes to show:'); ?></label>
-	  <input id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" size="3" />
-	</p>
-	<p>
 	  <input type="checkbox" class="checkbox" name="<?php echo $this->get_field_name('random')?>" value="1" <?php checked( $random, 1 ); ?> />
 	  <label for="<?php echo $this->get_field_id('random'); ?>"><?php _e('Display random quote'); ?></label>
+	</p>
+	<p>
+	  <label for="<?php echo $this->get_field_id('id'); ?>"><?php echo __('Quote ID:'); ?></label>
+	  <input id="<?php echo $this->get_field_id('id'); ?>" name="<?php echo $this->get_field_name('id'); ?>" type="text" value="<?php echo $id; ?>" size="5" />
 	</p>
 <?php
 	}
