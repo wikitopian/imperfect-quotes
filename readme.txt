@@ -17,7 +17,7 @@ plugin. Differences:
 === Additions ===
 * Rich text editor for the quote
 * 'Featured Image' functionality for thumbnails of the author
- 
+
 === Subtractions ===
 * Removed 'Action Button'
 * Simplified shortcode
@@ -63,7 +63,7 @@ From the Imperfect Quotes home area, there is a column called Shortcode.
 Find the particular quote you want and copy the corresponding shortcode.
 It looks something like [imperfect_quotes id="1"].
 Paste this into your post or onto a page and your quote will magically appear!
-  
+ 
 = For more help =
 
 For more help please visit http://www.swarmstrategies.com/imperfect-quotes

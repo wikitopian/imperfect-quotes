@@ -19,7 +19,7 @@ function imperfect_quotes_func($atts) {
 			$atts
 		)
 	);
-  
+
   // Load Imperfect Quotes style.css
   wp_enqueue_style('imperfect_quotes', plugins_url('style.css', __FILE__));
 
@@ -46,13 +46,13 @@ function imperfect_quotes_get_quote($id, $image_width, $image_height) {
 		  'post_type' => 'imperfect-quotes'
 		);
 	}
-	
+
 	$query = new WP_Query($args);
 	if($query->have_posts()) {
 		$query->the_post();
 
 		$quote = array();
-		$quote['author'] = get_the_title(); 
+		$quote['author'] = get_the_title();
 		$quote['quote']  = get_the_content();
 		$quote['image']  = get_the_post_thumbnail(null, array($image_width, $image_height));
 
