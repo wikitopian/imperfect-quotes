@@ -30,14 +30,14 @@ function imperfect_quotes_init() {
     'view_item' => __('View Imperfect Quote'),
     'search_items' => __('Search Imperfect Quotes'),
     'not_found' =>  __('No Imperfect Quotes found!'),
-    'not_found_in_trash' => __('No Imperfect Quotes in the trash!'), 
+    'not_found_in_trash' => __('No Imperfect Quotes in the trash!'),
     'parent_item_colon' => ''
   );
   $args = array(
     'labels' => $labels,
     'public' => true,
     'publicly_queryable' => true,
-    'show_ui' => true, 
+    'show_ui' => true,
     'query_var' => true,
     'rewrite' => true,
     'capability_type' => 'post',
@@ -45,7 +45,7 @@ function imperfect_quotes_init() {
     'menu_position' => 100,
     'menu_icon' => plugin_dir_url(__FILE__) . 'images/imperfect-space-icon.png',
     'supports' => array('title', 'editor', 'thumbnail')
-  ); 
+  );
   register_post_type('imperfect-quotes',$args);
   add_action( 'save_post', 'imperfect_quotes_save_postdata' );
 }
@@ -53,7 +53,7 @@ function imperfect_quotes_init() {
 // Custom Columns
 add_action("manage_posts_custom_column",  "imperfect_quotes_columns");
 add_filter("manage_edit-imperfect-quotes_columns", "imperfect_quotes_edit_columns");
- 
+
 function imperfect_quotes_edit_columns($columns){
   $columns = array(
     'cb' => "<input type=\"checkbox\" />",
@@ -63,13 +63,13 @@ function imperfect_quotes_edit_columns($columns){
     'author' => 'Posted by',
     'date' => 'Date'
   );
- 
+
   return $columns;
 }
 
 function imperfect_quotes_columns($column){
   global $post;
- 
+
   switch ($column) {
     case 'imperfect-quote':
 	  echo get_the_excerpt();
