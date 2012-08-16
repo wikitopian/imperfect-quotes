@@ -1,6 +1,6 @@
 === Imperfect Quotes ===
-Contributors: Brandon Ferens, Perfect Space, Inc., Matt Parrott
-Donate link: http://www.perfectspace.com/
+Contributors: Brandon Ferens, Perfect Space Inc., Matt Parrott
+Donate link: http://www.swarmstrategies.com/imperfect-quotes
 Tags: Imperfect Quotes, imperfect, quote, quotes, widget, plugin, shortcode, testimonial, testimonials, random
 Requires at least: 3.0
 Tested up to: 3.3.1
@@ -8,21 +8,15 @@ Stable tag: 0.9.1
 
 == Description ==
 
-Add a bunch of quotes on the backend, and randomly (or specifically)
-generate them on a widget, with shortcodes, or elsewhere in your theme.
+Use the intuitive and powerful rich text interface to add and edit quotes,
+using the 'featured image' functionality to add a thumbnail image. Then, use
+either the supplied widget, a simple shortcode, or a straightforward function
+in your theme to add either a specific quote or a random quote to your site.
 
 This plugin is a fork of Perfect Quotes. I forked it because it's an excellent
-plugin. Differences:
-
-=== Additions ===
-* Rich text editor for the quote
-* 'Featured Image' functionality for thumbnails of the author
-
-=== Subtractions ===
-* Removed 'Action Button'
-* Simplified shortcode
-* Don't support showing multiple quotes
-* Don't support metadata
+plugin. In some ways, it's more powerful and flexible than this one. I highly
+recommend it if this plugin is too simple for you and you don't need either
+the thumbnail feature or the rich text editing option.
 
 = Features =
 
@@ -42,12 +36,13 @@ plugin. Differences:
 3. Go to the Imperfect Quotes menu and select Add new.
 4. Type in the author.
 5. Type in the quote.
+6. Add a `Featured Image` to the post (don't actually insert the image, though!)
 
 It will look something like this:
 
 The trouble with quotes on the internet is that
 it’s difficult to discern whether or not they are genuine.
-- Abraham Lincoln
+- Abraham Lincoln [lincoln.jpg]
 
 = Widget =
 
@@ -70,18 +65,25 @@ For more help please visit http://www.swarmstrategies.com/imperfect-quotes
 
 == Frequently Asked Questions ==
 
-= What are the custom fields that I can use? =
-
-Imperfect Quotes doesn't support custom fields. You'll want to use
-Perfect Quotes for that.
-
 = Does your plugin have a feature to randomly select quotes? =
 
 Unless you specify the quote by its id, it'll be randomly selected.
 
+= Why am I seeing two pictures of Abraham Lincoln on my page? =
+
+That's because you're not only associating the quote with a featured image,
+you're adding the image to the quote itself. If you click 'Use as Featured
+Image' at the bottom of the image properties dialog, then 'X' out of the
+dialog, you'll have a featured image without inserting it into the quote.
+
+While this is a bit counter-intuitive, it gives you the power to insert images
+and other rich content into quotes when you actually want to do that.
+
 == Screenshots ==
 
-
+1. How the quote appears on a website
+2. Manage the quotes on the admin page
+3. Add a thumbnail to your quote
 
 == Changelog ==
 
