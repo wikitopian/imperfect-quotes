@@ -3,10 +3,10 @@
 Plugin Name: Imperfect Quotes
 Plugin URI: http://www.swarmstrategies.com/imperfect-quotes
 Description: An even easier to use plugin for misquotes and testimonials!
-Version: 0.9.0
+Version: 0.9.3
 Author: Brandon Ferens, Perfect Space, Inc., Matt Parrott
 Author URI: http://www.swarmstrategies.com
-License: GPL2
+License: GPLv2
  */
 
 $imperfect_quote_image_width  = 100;
