@@ -7,7 +7,7 @@ Version: 0.9.3
 Author: Brandon Ferens, Perfect Space, Inc., Matt Parrott
 Author URI: http://www.swarmstrategies.com
 License: GPLv2
- */
+*/
 
 $imperfect_quote_image_width  = 100;
 $imperfect_quote_image_height = 100;
